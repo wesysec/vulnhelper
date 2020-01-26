@@ -3,4 +3,4 @@ hashcat -m 1800 -a 0 hashfile ../wordlists/big.txt --force
 
 MD5
 echo "c6d6bd7ebf806f43c76acc3681703b81" > hash
-hashcat -m 0 -a 0 hash ~/wordlists/rockyou.txt
+hashcat -m 0 -a 0 hash ~/wordlists/rockyou.txt --force
