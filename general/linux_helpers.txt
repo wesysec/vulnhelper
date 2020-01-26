@@ -1,1 +1,15 @@
 # These are linux helpers to compliment tools found in Kali Linux
+
+Recently I got back into vulnhub challenges and started with NullByte-1.  I was trying to use patator to perform a dictionary attack on the web form but found that there were encoding challenges when using the builtin wordlists like big.txt or rockyou.txt.  I was seeing errors like "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf3 in position 4382: invalid continuation byte" when using the following command:
+
+patator http_fuzz url=http://192.168.57.12/kzMb5nVYJw/index.php method=POST body='key=FILE0' 0=/usr/share/dirb/wordlists/big.txt follow=1 accept_cookie=1 -x ignore:fgrep='invalid key' -x quit:fgrep!='invalid key'
+
+After some research I found that these files contained non-standard ascii characters and instead of changing the tool I figured it would be faster to find and remove the bad characters.  The two native linux commands below helped me to quickly get up and running with patator.
+
+Find non-ascii characters in file:
+grep --color='auto' -P -n "[\x80-\xFF]" file
+
+Remove non-ascii character in file:
+tr -dc '\0-\177' < file > newfile
+If error:
+LC_ALL=C tr -dc '\0-\177' < file > newfile
