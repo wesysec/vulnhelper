@@ -1,0 +1,9 @@
+When using built in wordlists with patator make sure to remove non-ascii characters or you will get errors.
+Instructions on how to do this can be found in general/linux_helpers.txt
+
+http form post example
+patator http_fuzz url=http://192.168.57.12/kzMb5nVYJw/index.php method=POST body='key=FILE0' 0=big.txt follow=1 accept_cookie=1 -x ignore:fgrep='invalid key' -x quit:fgrep!='invalid key'
+
+ssh example
+patator ssh_login host=192.168.57.12 port=777 user=ramses password=FILE0 0=words.txt -x ignore:mesg='Authentication failed.'
+patator ssh_login host=192.168.57.12 port=777 user=ramses password=FILE0 0=words.txt -x ignore:fgrep='failed'
