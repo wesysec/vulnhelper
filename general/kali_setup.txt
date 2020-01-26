@@ -3,3 +3,8 @@ apt-get install libc6-dbg gdb valgrind
 
 Install 32 bit libraries for gcc
 apt-get install gcc-multilib
+
+Install gdb-peda
+git clone https://github.com/longld/peda.git ~/peda
+echo "source ~/peda/peda.py" >> ~/.gdbinit
+echo "DONE! debug your program with gdb and enjoy"
