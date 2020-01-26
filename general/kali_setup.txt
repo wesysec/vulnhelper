@@ -1,2 +1,5 @@
 Install gdb
 apt-get install libc6-dbg gdb valgrind
+
+Install 32 bit libraries for gcc
+apt-get install gcc-multilib
