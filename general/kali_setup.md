@@ -1,0 +1,2 @@
+Install gdb
+apt-get install libc6-dbg gdb valgrind
