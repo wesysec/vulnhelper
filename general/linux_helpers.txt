@@ -18,3 +18,6 @@ Remove non-ascii character in file:
 tr -dc '\0-\177' < file > newfile
 If error:
 LC_ALL=C tr -dc '\0-\177' < file > newfile
+
+Double characters printing in shell:
+Ctrl-Z and stty -echo then fg to get back to shell
